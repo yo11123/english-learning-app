@@ -21,6 +21,7 @@ PAGES = [
     "📰 リーディング",
     "🃏 フラッシュカード",
     "💬 AI英会話",
+    "🔄 ネイティブ英語翻訳",
 ]
 
 if "current_page" not in st.session_state:
@@ -63,6 +64,7 @@ if page == "🏠 ホーム":
         ("📰 リーディング", "レベル別の英文読解。語彙リスト・内容理解問題付き。"),
         ("🃏 フラッシュカード", "登録した単語をカード形式で暗記。苦手順の表示も可能。"),
         ("💬 AI英会話", "10種類のシナリオでAIと英会話練習。ヒント・翻訳・文法チェック付き。"),
+        ("🔄 ネイティブ英語翻訳", "日本語を入力→ネイティブが使う自然な英語に翻訳。複数の言い回しも提案。"),
     ]
 
     cols = st.columns(3)
@@ -114,4 +116,8 @@ elif page == "🃏 フラッシュカード":
 
 elif page == "💬 AI英会話":
     from modules.conversation import render
+    render()
+
+elif page == "🔄 ネイティブ英語翻訳":
+    from modules.translation import render
     render()
