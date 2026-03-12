@@ -68,24 +68,14 @@ def render():
 
     # メイン翻訳
     st.subheader("メイン翻訳")
-    st.markdown(
-        f"""<div style="background-color: #1a1a2e; padding: 1.2rem; border-radius: 8px;
-        border-left: 4px solid #4da6ff; font-size: 1.15rem; line-height: 1.8;">
-        {result['main']}</div>""",
-        unsafe_allow_html=True,
-    )
+    st.info(result["main"])
 
     # バリエーション
     if result.get("variations"):
         st.subheader("別の言い方")
         for i, v in enumerate(result["variations"], 1):
-            st.markdown(
-                f"""<div style="background-color: #1e1e2e; padding: 0.8rem; border-radius: 6px;
-                margin-bottom: 0.5rem; border-left: 3px solid #7c4dff;">
-                <strong>{i}.</strong> {v['english']}<br>
-                <span style="color: #aaa; font-size: 0.9rem;">💡 {v['note']}</span></div>""",
-                unsafe_allow_html=True,
-            )
+            st.success(f"**{i}.** {v['english']}")
+            st.caption(f"💡 {v['note']}")
 
     # 直訳 vs 自然な表現
     if result.get("literal_vs_natural"):
